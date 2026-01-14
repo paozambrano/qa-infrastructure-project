@@ -21,4 +21,4 @@ class DBHandler:
     
     def close(self):
         self.cursor.close()
-        self.connection.close()
+        self.connection.close() 
