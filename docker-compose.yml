@@ -1,15 +1,14 @@
-version: '3.8'
-
 services:
-  db: 
+
+  db:
     image: mysql:8.0
     container_name: bookstore_db
     restart: always
     environment:
-      - MYSQL_DATBASE: 'bookstore'
-      - MYSQUL_ROOT_PASSWORD: 'secret_password'
+      - MYSQL_DATABASE=bookstore
+      - MYSQL_ROOT_PASSWORD=secret_password
     ports:
-      - '3306:3306'
+      - "3306:3306"
     volumes:
       - ./database:/docker-entrypoint-initdb.d
 
@@ -19,4 +18,4 @@ services:
     depends_on:
       - db
     volumes:
-      - ._/app
+      - .:/app
